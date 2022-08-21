@@ -1,0 +1,475 @@
+:root {
+    --light-text: #f0e5d7;
+    --dark-text: #331900;
+    --dark: #271D1B;
+    --card-bg: #F7F7F7AE;
+    --main: #FFB268;
+    --main-darker: #FD9D43;
+    --padding-inline: clamp(20px, 10vw, 181px);
+    --aboreto: 'Aboreto', sans-serif;
+}
+
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+
+* {
+    font-family: "Montserrat", sans-serif;
+    color: var(--dark-text);
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+.container {
+    padding-inline: var(--padding-inline);
+}
+
+.btn {
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.main-text, .menu, .reserve, .reserve-form, .reserve-text, .form-clarifications, .about-text {
+    display: flex;
+    flex-direction: column
+}
+
+.bg-pttrn {
+    background: url("memphis-mini.webp");
+}
+
+/* Header */
+header {
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    padding-block: 15px 30px;
+    mask: linear-gradient(0deg, transparent 2%, var(--dark) 30%);
+    -webkit-mask: linear-gradient(0deg, transparent 1%, var(--dark) 20%);
+    backdrop-filter: blur(5px);
+}
+
+.header-wrapper {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.brand-logo span {
+    display: flex;
+    gap: 3px;
+    color: var(--light-text);
+    font: small-caps bold clamp(1.5em ,3vw, 180px) var(--aboreto);
+    letter-spacing: 1px;
+}
+
+/* Navbar */
+.nav-wrapper {
+    display: flex;
+    gap: clamp(30px, 5vw, 600px);
+    align-items: center;
+}
+
+ul {
+    display: flex;
+    letter-spacing: 0.5px;
+    gap: 30px;
+    list-style: none;
+    white-space: nowrap;
+}
+
+a {
+    color: var(--light-text);
+    font: bold clamp(0.8em ,1.2vw, 180px) var(--aboreto);
+    text-decoration: none;
+    border-bottom: 1px dashed transparent;
+}
+
+a:hover {
+    border-bottom: 1px dashed var(--main);
+    transition: 0.5s;
+}
+
+.cart {
+    background: none;
+}
+
+.cart svg:hover {
+    transition: 0.3s;
+    transform: scale(1.05);
+}
+
+.cart svg {
+    width: clamp(20px ,2vw, 40px); 
+    display: flex;
+}
+
+.reserve-btn {
+    background-color: var(--main);
+    padding: 2%;
+    padding-inline: 3%;
+    font: bold clamp(12px, 1.4vw, 180px) var(--aboreto);
+}
+
+.reserve-btn:hover {
+    box-shadow: 0px 0px 20px 0px var(--dark);
+    background-color: var(--dark);
+    color: var(--light-text);
+    transition: 0.3s;
+    transform: scale(1.05);
+}
+
+.nav-bars-icon {
+    display: none;
+    align-self: flex-end;
+}
+
+/* Main */
+.bg-image {
+    background: url("resto1.jpg");
+    background-size: cover;
+    height: 100vh;
+    background-position: center;
+    filter: drop-shadow(-1px -30px 35px var(--dark));
+}
+
+.main-text {
+    padding-top: 2.5em;
+    height: 60%;
+    align-items: flex-start;
+    font-size: clamp(34px,4vw,64px);
+    justify-content: center;
+}
+
+.main-text h1 {
+    color: var(--main);
+    text-shadow: -5px 4px 0px var(--dark);
+    font-family: var(--aboreto);
+}
+
+.main-text p, h4 {
+    color: var(--main);
+    font-size: clamp(34px,3vw,54px);
+    font-weight: 100;
+    text-shadow: 0px 0px 30px black;
+}
+
+.main-text h4 {
+    padding-top:  10px;
+    font-size: 24px;
+}
+
+/* Menu */
+.menu {
+    padding-block: 16px 48px;
+}
+
+.menu h2 {
+    padding: 2.5em 0 0.5em 0;
+}
+
+.menu-row {
+    padding-bottom: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+/* Cards */
+.card {
+    background-color: var(--card-bg);
+    display: flex;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px -4px var(--dark);
+}
+
+.item-img {
+    width: 45%;
+    height: 12em;
+    object-fit: cover;
+}
+
+.item-info {
+    padding: 15px;
+    font-size: clamp(12px,1vw,1.5em);
+}
+
+.item-tags {
+    display: inline-flex;
+    gap: 4px;
+    padding-block: 8px;
+}
+
+.item-tags span {
+    font-weight: 500;
+    background-color: var(--main);
+    font-size: 0.75em;
+    border-radius: 50em;
+    padding: 0.25em 0.55em
+}
+
+.card-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding-top: 20px;
+}
+
+.add-order, .item-details {
+    padding: 9px;
+    font-weight: 500;
+}
+
+.add-order {
+    background-color: var(--main);
+    border: 1px solid var(--main);
+}
+
+.item-details {
+    background: none;
+    border: 1px solid var(--main-darker);
+    color: var(--main-darker);
+}
+
+.add-order:hover {
+    background-color: var(--main-darker);
+    transition: 0.15s;
+}
+
+.item-details:hover {
+    background-color: var(--main);
+    color: var(--dark-text);
+    transition: 0.15s;
+}
+
+/* Scroll animation */
+.scroll-container {
+    display: flex;
+    justify-content: center;
+    height: 30%;
+    align-items: flex-end;
+}
+
+.scroll-down {
+    width: 50px;
+    height: 50px;
+    animation: down 2s infinite;
+    -webkit-animation: down 2s infinite;
+}
+
+  .scroll-down::before {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-left: 3px solid var(--main);
+    border-bottom: 3px solid var(--main);
+    transform: rotate(-45deg);
+}
+
+/* About */
+.bg-about {
+    background: url("LondonStock-Feb-1-scaled.jpg");
+    background-size: cover;
+}
+
+.about-text {
+    gap: 20px;
+    padding-block: 6em 6em;
+}
+
+.about-text h1 {
+    font-size: clamp(34px,4vw,64px);
+    color: var(--main);
+    text-shadow: -5px 4px 0px var(--dark);
+    font-family: var(--aboreto);
+    padding-bottom: 10px;
+}
+
+.about-text p {
+    font-size: clamp(16px,2vw,34px);
+    color: var(--main);
+}
+
+.about-text strong {
+    color: var(--main);
+}
+  
+/* Reserve */
+.reserve-text {
+    gap: 8px;
+    padding-block: 30px 10px;
+    border-bottom: 2px solid #bbb;
+    font-size: clamp(14px,2vw,24px);
+}
+
+.reserve-form {
+    padding-block: 15px 15px;
+    gap: 20px;
+    font-weight: 500;
+}
+
+.form-fullname, .form-reservation, .form-guests {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-clarifications {
+    gap: 5px;
+}
+
+input, textarea {
+    padding: 8px;
+    border: 1px solid #bbb;
+    outline: none;
+}
+
+input:focus, textarea:focus {
+    border: 1px solid var(--main);
+    transition: 0.5s;
+}
+
+textarea {
+    resize: none;
+}
+
+#guests {
+    width: 6em;
+}
+
+.submit-btn {
+    font-size: clamp(18px, 4vw, 24px);
+    background-color: var(--main);
+    padding: 9px;
+    margin-bottom: 30px;
+}
+
+.submit-btn:hover {
+    background-color: var(--main-darker);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--dark);
+}
+
+footer {
+    padding-inline: var(--padding-inline);
+}
+
+.footer-text {
+    display: flex;
+    padding-block: 30px 30px;
+}
+
+.footer-text p {
+    color: var(--light-text);
+    font-size: clamp(12px, 2vw, 18px);;
+}
+
+/* Scroll keyframes */
+@keyframes down {
+    0% {
+      transform: translate(0);
+    }
+    30% {
+      transform: translateY(15px);
+    }
+    60% {
+      transform: translate(0);
+    }
+}
+
+@-webkit-keyframes down {
+    0% {
+      transform: translate(0);
+    }
+    20% {
+      transform: translateY(15px);
+    }
+    40% {
+      transform: translate(0);
+    }
+}
+
+::selection {
+    color: var(--dark-text);
+    background-color: var(--main);
+}
+
+/* Media queries */
+@media screen and (max-width: 1000px) {
+
+    .card {
+        flex-direction: column;
+    }
+
+    .item-img {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 640px) {
+
+    ul {
+        display: none;
+    }
+
+    .nav-bars-icon {
+        display: flex;
+    }
+
+    .nav-bars-icon svg {
+        width: 1em;
+    }
+
+    .reserve-btn {
+        padding-block: 5%;
+        padding-inline: 6%
+    }
+}
+
+@media screen and (max-width: 595px) {
+    .menu-row {
+        flex-wrap: wrap;
+    }
+
+    .card {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .card p {
+        display: none;
+    }
+
+    .card-buttons {
+        padding-top: 10px;
+    }
+
+    .form-fullname, .form-reservation, .form-guests {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media screen and (max-width: 415px) {
+    .reserve-btn {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .cart {
+        display: none;
+    }
+
+    .add-order, .item-details {
+        font-size: 10px;
+    }
+}
