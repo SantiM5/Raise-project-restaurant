@@ -89,7 +89,7 @@ a {
     border-bottom: 1px dashed transparent;
 }
 
-a:hover {
+ul a:hover {
     border-bottom: 1px dashed var(--main);
     transition: 0.5s;
 }
@@ -138,29 +138,30 @@ a:hover {
 }
 
 .main-text {
-    padding-top: 2.5em;
+    padding-top: 4em;
     height: 60%;
     align-items: flex-start;
-    font-size: clamp(34px,4vw,64px);
     justify-content: center;
+    color: var(--main);
 }
 
 .main-text h1 {
-    color: var(--main);
+    color: currentColor;
     text-shadow: -5px 4px 0px var(--dark);
     font-family: var(--aboreto);
+    font-size: clamp(52px,9vw,110px);
 }
 
 .main-text p, h4 {
-    color: var(--main);
-    font-size: clamp(34px,3vw,54px);
+    color: currentColor;
+    font-size: clamp(27px,3vw,54px);
     font-weight: 100;
     text-shadow: 0px 0px 30px black;
 }
 
 .main-text h4 {
     padding-top:  10px;
-    font-size: 24px;
+    font-size: 20px;
 }
 
 /* Menu */
@@ -235,7 +236,7 @@ a:hover {
     color: var(--main-darker);
 }
 
-.add-order:hover {
+.add-order:hover, .contact-icons svg:hover {
     background-color: var(--main-darker);
     transition: 0.15s;
 }
@@ -280,25 +281,22 @@ a:hover {
 .about-text {
     gap: 20px;
     padding-block: 6em 6em;
+    color: var(--main);
 }
 
 .about-text h1 {
     font-size: clamp(34px,4vw,64px);
-    color: var(--main);
+    color: currentColor;
     text-shadow: -5px 4px 0px var(--dark);
     font-family: var(--aboreto);
     padding-bottom: 10px;
 }
 
-.about-text p {
+.about-text p, strong {
     font-size: clamp(16px,2vw,34px);
-    color: var(--main);
+    color: currentColor;
 }
 
-.about-text strong {
-    color: var(--main);
-}
-  
 /* Reserve */
 .reserve-text {
     gap: 8px;
@@ -354,22 +352,34 @@ textarea {
 }
 
 /* Footer */
-.footer {
+.footer-bg {
     background-color: var(--dark);
 }
 
 footer {
-    padding-inline: var(--padding-inline);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .footer-text {
-    display: flex;
     padding-block: 30px 30px;
 }
 
 .footer-text p {
     color: var(--light-text);
-    font-size: clamp(12px, 2vw, 18px);;
+    font-size: clamp(12px, 2vw, 18px);
+}
+
+.contact-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.contact-icons svg {
+    width: 30px;
+    border-radius: 5px;
 }
 
 /* Scroll keyframes */
@@ -397,36 +407,46 @@ footer {
     }
 }
 
+/* Selection */
 ::selection {
     color: var(--dark-text);
     background-color: var(--main);
 }
 
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 15px;
+}
+  
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+  
+::-webkit-scrollbar-thumb {
+    background-color: var(--main);
+    border: 3px solid transparent;
+    background-clip: content-box;
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--main-darker);
+}
+
 /* Media queries */
 @media screen and (max-width: 1000px) {
 
-    .card {
-        flex-direction: column;
-    }
+    .card { flex-direction: column; }
 
-    .item-img {
-        width: 100%;
-    }
+    .item-img { width: 100%; }
 }
 
 @media screen and (max-width: 640px) {
 
-    ul {
-        display: none;
-    }
+    ul { display: none; }
 
-    .nav-bars-icon {
-        display: flex;
-    }
+    .nav-bars-icon { display: flex; }
 
-    .nav-bars-icon svg {
-        width: 1em;
-    }
+    .nav-bars-icon svg { width: 1em; }
 
     .reserve-btn {
         padding-block: 5%;
@@ -435,41 +455,34 @@ footer {
 }
 
 @media screen and (max-width: 595px) {
-    .menu-row {
-        flex-wrap: wrap;
-    }
+    .menu-row { flex-wrap: wrap; }
 
     .card {
         flex-direction: column;
         width: 100%;
     }
 
-    .card p {
-        display: none;
-    }
+    .card p { display: none; }
 
-    .card-buttons {
-        padding-top: 10px;
-    }
+    .card-buttons { padding-top: 10px; }
 
     .form-fullname, .form-reservation, .form-guests {
         flex-direction: column;
         align-items: flex-start;
     }
+
+    .contact-icons svg { width: 20px; }
+
 }
 
 @media screen and (max-width: 415px) {
-    .reserve-btn {
-        display: none;
-    }
+    .reserve-btn { display: none; }
+
+    .bg-about { background-position: center; }
 }
 
 @media screen and (max-width: 300px) {
-    .cart {
-        display: none;
-    }
-
-    .add-order, .item-details {
-        font-size: 10px;
-    }
+    .cart, .nav-wrapper { display: none; }
+    
+    .add-order, .item-details { font-size: 10px; }
 }
