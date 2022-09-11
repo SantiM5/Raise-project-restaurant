@@ -32,7 +32,7 @@
     border-radius: 4px;
 }
 
-.main-text, .menu, .reserve, .reserve-form, .reserve-text, .form-clarifications, .about-text {
+.main-text, .menu, .reserve, .reserve-form, .reserve-text, .form-clarifications, .about-text, .item-info {
     display: flex;
     flex-direction: column
 }
@@ -123,7 +123,7 @@ ul a:hover {
     transform: scale(1.05);
 }
 
-.nav-bars-icon {
+.nav-burger {
     display: none;
     align-self: flex-end;
 }
@@ -173,10 +173,15 @@ ul a:hover {
     padding: 2.5em 0 0.5em 0;
 }
 
-.menu-row {
-    padding-bottom: 20px;
-    display: flex;
+.menu-grid {  
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     gap: 20px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "card1 card2"
+      "card1 card2"
 }
 
 /* Cards */
@@ -196,6 +201,7 @@ ul a:hover {
 .item-info {
     padding: 15px;
     font-size: clamp(12px,1vw,1.5em);
+    width: 100%;
 }
 
 .item-tags {
@@ -218,6 +224,7 @@ ul a:hover {
     align-items: flex-end;
     justify-content: flex-end;
     padding-top: 20px;
+    height: 100%;
 }
 
 .add-order, .item-details {
@@ -359,12 +366,10 @@ textarea {
 footer {
     display: flex;
     align-items: center;
+    padding-block: 30px 30px;
     flex-wrap: wrap;
     justify-content: space-between;
-}
-
-.footer-text {
-    padding-block: 30px 30px;
+    gap: 15px;
 }
 
 .footer-text p {
@@ -380,6 +385,48 @@ footer {
 .contact-icons svg {
     width: 30px;
     border-radius: 5px;
+}
+
+.active {
+    padding-inline: var(--padding-inline);
+    z-index: 100;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    right: 0;
+}
+
+.nav-ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-block: 5em;
+    font-size: 1.5em;
+}
+
+.cross-active {
+    background: transparent;
+    position: absolute;
+    top: 25px;
+    right: 35px;   
+}
+
+.reserve-active {
+    background-color: var(--main);
+    padding: 2%;
+    padding-inline: 3%;
+    font: bold clamp(12px, 1.4vw, 180px) var(--aboreto);
+}
+    
+.reserve-active:hover {
+    box-shadow: 0px 0px 20px 0px var(--dark);
+    background-color: var(--dark);
+    color: var(--light-text);
+    transition: 0.3s;
+    transform: scale(1.05);
 }
 
 /* Scroll keyframes */
@@ -442,11 +489,18 @@ footer {
 
 @media screen and (max-width: 640px) {
 
-    ul { display: none; }
+    ul {
+        display: none;
+    }
 
-    .nav-bars-icon { display: flex; }
+    .reserve-btn { display: none; }
 
-    .nav-bars-icon svg { width: 1em; }
+    .nav-burger { 
+        display: flex;
+        background-color: transparent;
+    }
+
+    .nav-burger svg { width: 1.3em; }
 
     .reserve-btn {
         padding-block: 5%;
@@ -455,16 +509,6 @@ footer {
 }
 
 @media screen and (max-width: 595px) {
-    .menu-row { flex-wrap: wrap; }
-
-    .card {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .card p { display: none; }
-
-    .card-buttons { padding-top: 10px; }
 
     .form-fullname, .form-reservation, .form-guests {
         flex-direction: column;
@@ -472,17 +516,31 @@ footer {
     }
 
     .contact-icons svg { width: 20px; }
+}
 
+@media screen and (max-width: 560px) {
+
+    .card-buttons { padding-top: 10px; }
+
+    .menu-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 20px;
+        grid-auto-flow: row;
+        grid-template-areas:
+          "card"
+          "card"
+    }
+    
 }
 
 @media screen and (max-width: 415px) {
-    .reserve-btn { display: none; }
-
     .bg-about { background-position: center; }
 }
 
 @media screen and (max-width: 300px) {
-    .cart, .nav-wrapper { display: none; }
+    .cart { display: none; }
     
     .add-order, .item-details { font-size: 10px; }
 }

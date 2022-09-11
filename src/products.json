@@ -1,0 +1,33 @@
+{
+  "id": "1",
+  "menu": [
+    {
+        "id": 1,
+        "name": "cheeseburger1",
+        "price": 29,
+        "text": "lorem ipsum",
+        "readyIn": "10'"
+    },
+    {
+        "id": 2,
+        "name": "cheeseburger2",
+        "price": 29,
+        "text": "lorem ipsum",
+        "readyIn": "10'"
+    },
+    {
+        "id": 3,
+        "name": "cheeseburger3",
+        "price": 29,
+        "text": "lorem ipsum",
+        "readyIn": "10'"
+    },
+    {
+      "id": 3,
+      "name": "cheeseburger3",
+      "price": 29,
+      "text": "lorem ipsum",
+      "readyIn": "10'"
+    }
+  ]
+}
